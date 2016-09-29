@@ -16,10 +16,18 @@ public class Caesar {
 			
 			for (int i = 0; i < message.length(); i++){
 				asciiMessage = (int) message.charAt(i);
-				if ((asciiMessage <= 91 && asciiMessage >= 65) || (asciiMessage <= 123 && asciiMessage >= 97)){
-					asciiMessage += 1;
+				if (asciiMessage < 91 && asciiMessage >= 65){
+					asciiMessage += key;
+					if (asciiMessage > 90)
+						asciiMessage -= 26;
 					System.out.print((char) asciiMessage);
 				} 
+				else if (asciiMessage < 123 && asciiMessage >= 97){
+					asciiMessage += key;
+					if (asciiMessage > 122)
+						asciiMessage -= 26;
+					System.out.print((char) asciiMessage);
+				}
 				else {
 					System.out.print(message.charAt(i));	
 				}
